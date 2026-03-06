@@ -87,11 +87,12 @@
 
     <div class="grid grid-cols-1 md:grid-cols-12 gap-4 px-5">
       <!-- Categories section start  -->
-      <div class="col-span-2">
+      <div class="col-span-2 sticky top-10">
         <h2 class="text-xl font-bold">Categories</h2>
         <div class="mt-4">
           <ul id="categories-container" class="menu bg-base-100 w-56 text-lg rounded-box">
-            <li><a id="categories-all-trees-button" class="categoris-button bg-green-600 font-semibold text-white hover:bg-green-700">All Trees</a></li>
+            <li><a id="categories-all-trees-button"
+                class="categoris-button bg-green-600 font-semibold text-white hover:bg-green-700">All Trees</a></li>
             <!-- categories button will be here dynamically by API -->
           </ul>
         </div>
@@ -104,6 +105,27 @@
         <div id="plants-card-container" class="grid grid-cols-1 md:grid-cols-3 gap-4">
           <!-- all plants card will be display here dynamically -->
         </div>
+
+        <!-- modal start  -->
+        <!-- Open the modal using ID.showModal() method -->
+        <dialog id="modal" class="modal">
+
+        </dialog>
+        <!-- modal end -->
+<!-- Open the modal using ID.showModal() method -->
+<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
+<dialog id="my_modal_1" class="modal">
+  <div class="modal-box">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4">Press ESC key or click the button below to close</p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
       </div>
       <!-- trees card section end -->
 

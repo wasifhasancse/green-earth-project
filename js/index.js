@@ -38,13 +38,13 @@ const displayPlantCard = (plantData) => {
     plantsCard.innerHTML = `
 
             <div class="card-image">
-              <img class="aspect-3/2 object-cover" src="${plant.image}" alt="${plant.name}">
+              <img onclick="showModal(${(plant.id)})" class="aspect-3/2 object-cover cursor-pointer" title="${plant.name}" src="${plant.image}" alt="${plant.name}">
             </div>
             <div class="space-y-2.5">
-              <h2 class="text-xl font-bold">${plant.name}</h2>
+              <h2 onclick="showModal(${(plant.id)})" class="text-xl font-bold cursor-pointer hover:text-green-600">${plant.name}</h2>
               <p class="line-clamp-2">${plant.description}</p>
               <div class="flex items-center justify-between">
-                <a class="inline-block py-1 px-3 bg-green-100 text-green-500 rounded-full">${plant.category}</a>
+                <a class="inline-block py-1 px-3 bg-green-100 text-green-600 rounded-full">${plant.category}</a>
                 <h3 class="font-bold text-lg">$${plant.price}</h3>
               </div>
             </div>
@@ -63,6 +63,46 @@ const getFilterPlants = async (categoryButtonId) => {
   );
   const filterPlantsData = await getFilterPlantsData.json();
   displayPlantCard(filterPlantsData);
+};
+
+// show modal
+const showModal = async (plantID) => {
+  const getModalPlantData = await fetch(`https://openapi.programming-hero.com/api/plant/${plantID}`)
+  const modalPlantData = await getModalPlantData.json();
+  console.log(modalPlantData.plants);
+  const modalData = modalPlantData.plants;
+  const modalContainer = document.getElementById("modal");
+  modalContainer.innerHTML = " ";
+  const plantModal = document.createElement("div");
+  plantModal.className = "bg-base-100 p-3 space-y-5";
+  plantModal.innerHTML = `<div class="modal-box">
+
+              <div class="card-image">
+                <img class="aspect-3/2 object-cover cursor-pointer" title="${modalData.name}" src="${modalData.image}"
+                  alt="${modalData.name}">
+              </div>
+              <div class="space-y-2.5">
+                <h2 class="text-xl font-bold cursor-pointer hover:text-green-600">${modalData.name}</h2>
+                <p class="line-clamp-2">${modalData.description}</p>
+                <div class="flex items-center justify-between">
+                  <a class="inline-block py-1 px-3 bg-green-100 text-green-600 rounded-full">${modalData.category}</a>
+                  <h3 class="font-bold text-lg">$${modalData.price}</h3>
+                </div>
+              </div>
+              <button
+                class="py-2.5 px-4 bg-green-500 text-white font-bold rounded cursor-pointer hover:bg-green-600">Add
+                to Cart</button>
+
+            </div>
+            <div class="modal-action">
+              <form method="dialog">
+                <!-- if there is a button in form, it will close the modal -->
+                <button class="btn">Close</button>
+              </form>
+            </div>
+          `;
+  modalContainer.append(plantModal);
+  modalContainer.showModal();
 };
 
 // call categories tab button API
