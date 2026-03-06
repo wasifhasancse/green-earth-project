@@ -8,7 +8,7 @@ const categoriesTab = async () => {
   getCategories.categories.forEach((category) => {
     const categoriesButton = document.createElement("li");
     categoriesButton.innerHTML = `
-            <a class="hover:bg-green-100">${category.category_name}</a>
+            <a onclick="getFilterPlants(${category.id})" class="categoris-button hover:bg-green-100">${category.category_name}</a>
           `;
     categoriesContainer.append(categoriesButton);
   });
@@ -16,13 +16,23 @@ const categoriesTab = async () => {
 
 // get all trees card data
 const getAllPlantsData = async () => {
-  const plantsCardContainer = document.getElementById("plants-card-container");
-  plantsCardContainer.innerHTML = " ";
   const getAllPlantsCardData = await fetch(
     "https://openapi.programming-hero.com/api/plants",
   );
   const allTreesCardData = await getAllPlantsCardData.json();
-  allTreesCardData.plants.forEach((plant) => {
+  displayPlantCard(allTreesCardData);
+  document
+    .getElementById("categories-all-trees-button")
+    .addEventListener("click", () => {
+      displayPlantCard(allTreesCardData);
+    });
+};
+
+// display plants card
+const displayPlantCard = (plantData) => {
+  const plantsCardContainer = document.getElementById("plants-card-container");
+  plantsCardContainer.innerHTML = " ";
+  plantData.plants.forEach((plant) => {
     const plantsCard = document.createElement("div");
     plantsCard.className = "card bg-base-100 shadow-xl p-3 space-y-5";
     plantsCard.innerHTML = `
@@ -34,7 +44,7 @@ const getAllPlantsData = async () => {
               <h2 class="text-xl font-bold">${plant.name}</h2>
               <p class="line-clamp-2">${plant.description}</p>
               <div class="flex items-center justify-between">
-                <a href="" class="inline-block py-1 px-3 bg-green-100 text-green-500 rounded-full">${plant.category}</a>
+                <a class="inline-block py-1 px-3 bg-green-100 text-green-500 rounded-full">${plant.category}</a>
                 <h3 class="font-bold text-lg">$${plant.price}</h3>
               </div>
             </div>
@@ -44,6 +54,15 @@ const getAllPlantsData = async () => {
     `;
     plantsCardContainer.append(plantsCard);
   });
+};
+
+// filter plants card by categories button
+const getFilterPlants = async (categoryButtonId) => {
+  const getFilterPlantsData = await fetch(
+    `https://openapi.programming-hero.com/api/category/${categoryButtonId}`,
+  );
+  const filterPlantsData = await getFilterPlantsData.json();
+  displayPlantCard(filterPlantsData);
 };
 
 // call categories tab button API
