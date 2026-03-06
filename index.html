@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Green Earth - Plants</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- daisyUI and Tailwind CSS CDN links -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <!-- font awesome cdn link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+  <!-- navigation bar start -->
+  <header>
+    <nav>
+      <div class="navbar bg-green-400 shadow-sm">
+        <div class="navbar-start">
+          <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+              </svg>
+            </div>
+            <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+              <li><a href="#home">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#gallery">Gallery</a></li>
+              <li><a href="#services">Plant a Tree</a></li>
+            </ul>
+          </div>
+          <a class="font-bold text-xl"><i class="fa-brands fa-pagelines"></i> Green Earth</a>
+        </div>
+        <div class="navbar-center hidden lg:flex">
+          <ul class="menu menu-horizontal px-1">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#services">Plant a Tree</a></li>
+          </ul>
+        </div>
+        <div class="navbar-end">
+          <a class="py-2.5 px-4 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300">Plant
+            a Tree</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!-- navigation bar end -->
+
+  <!-- hero section start -->
+  <section class="container bg-green-200 py-2.5 grid grid-cols-1 md:grid-cols-4 items-center">
+    <div class="col-span-1">
+      <img src="./assets/hero-leaf1.png" alt="Hero Image">
+    </div>
+    <div class="col-span-1 md:col-span-2">
+      <div class="hero">
+        <div class="hero-content text-center">
+          <div class="max-w-2xl">
+            <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
+            <p class="py-6 max-w-xl mx-auto">
+              Join our mission to plant 1 million trees and make the Earth greener for future
+              generations.
+            </p>
+            <a href="#"
+              class="py-2.5 px-4 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300">Get
+              Involved</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-span-1">
+      <img src="./assets/hero-leaf2.png" alt="Hero Image">
+    </div>
+  </section>
+  <!-- hero section end -->
+</body>
+
+</html>
