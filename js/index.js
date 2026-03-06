@@ -80,10 +80,10 @@ const showModal = async (plantID) => {
   plantModal.innerHTML = `
       <div class="modal-header flex items-center justify-between">
         <h2 class="text-2xl font-bold text-green-600">${modalData.name}</h2>
-        <span onclick="document.getElementById('modal').close()" class="text-gray-500 cursor-pointer hover:text-green-500"><i class="fa-solid fa-x"></i></span>
+        <span onclick="document.getElementById('modal').close()" class="text-gray-500 btn btn-sm btn-circle btn-ghost hover:text-green-500 hover:bg-green-100 hover:border-green-500"><i class="fa-solid fa-x"></i></span>
       </div>
-      <div class="card-image">
-        <img class="aspect-3/2 object-cover rounded-lg" title="${modalData.name}" src="${modalData.image}" alt="${modalData.name}">
+      <div class="card-image mb-8">
+        <img class="w-full h-[250px] object-cover rounded-lg" title="${modalData.name}" src="${modalData.image}" alt="${modalData.name}">
       </div>
       <div class="space-y-2.5">
         <p class="font-semibold text-gray-600">Category: <span class="inline-block py-1 px-3 bg-green-100 text-green-700 rounded-full font-semibold">${modalData.category}</span></p>
