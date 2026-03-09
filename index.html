@@ -13,11 +13,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="site-bg text-gray-800">
   <!-- navigation bar start -->
-  <header>
-    <nav>
-      <div class="navbar bg-green-400 shadow-sm">
+  <header class="sticky top-0 z-50">
+    <nav class="nav-shell border-b border-green-100/80 backdrop-blur-md">
+      <div class="navbar container mx-auto px-4 sm:px-6 lg:px-8 py-1">
         <div class="navbar-start">
           <div class="dropdown">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
@@ -26,128 +26,175 @@
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
               </svg>
             </div>
-            <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-              <li><a href="#home">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#gallery">Gallery</a></li>
-              <li><a href="#services">Plant a Tree</a></li>
+            <ul tabindex="-1"
+              class="menu menu-sm dropdown-content rounded-box z-10 mt-3 w-56 bg-white p-2 shadow gap-4">
+              <li><a class="nav-link" href="#home">Home</a></li>
+              <li><a class="nav-link" href="#about">About</a></li>
+              <li><a class="nav-link" href="#gallery">Gallery</a></li>
+              <li><a class="nav-link" href="#services">Plant a Tree</a></li>
             </ul>
           </div>
-          <a class="font-bold text-xl"><i class="fa-brands fa-pagelines"></i> Green Earth</a>
+          <a href="#home" class="brand-mark font-bold text-xl text-green-700"><i class="fa-brands fa-pagelines"></i>
+            Green
+            Earth</a>
         </div>
         <div class="navbar-center hidden lg:flex">
-          <ul class="menu menu-horizontal px-1">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#services">Plant a Tree</a></li>
+          <ul class="menu menu-horizontal px-1 gap-4">
+            <li><a class="nav-link" href="#home">Home</a></li>
+            <li><a class="nav-link" href="#about">About</a></li>
+            <li><a class="nav-link" href="#gallery">Gallery</a></li>
+            <li><a class="nav-link" href="#services">Plant a Tree</a></li>
           </ul>
         </div>
-        <div class="navbar-end">
-          <a class="py-2.5 px-4 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300">Plant
-            a Tree</a>
+        <div class="navbar-end gap-3">
+          <button id="nav-cart-button" class="nav-cart-pill px-3 py-2 text-green-700" aria-label="Go to cart">
+            <div class="indicator flex items-center gap-2">
+              <i class="fa-solid fa-bag-shopping text-base"></i>
+              <span class="hidden sm:inline text-sm font-semibold">Cart</span>
+              <span id="nav-cart-count"
+                class="badge badge-sm indicator-item bg-yellow-400 border-0 text-gray-900">0</span>
+            </div>
+          </button>
+          <button id="nav-plant-button"
+            class="px-4 py-2.5 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300 transition-all duration-300">Plant
+            a Tree</button>
         </div>
       </div>
     </nav>
   </header>
   <!-- navigation bar end -->
 
-  <!-- hero section start -->
-  <section class="container bg-green-200 py-2.5 grid grid-cols-1 md:grid-cols-4 items-center">
-    <div class="col-span-1">
-      <img src="./assets/hero-leaf1.png" alt="Hero Image">
-    </div>
-    <div class="col-span-1 md:col-span-2">
-      <div class="hero">
-        <div class="hero-content text-center">
-          <div class="max-w-2xl">
-            <h1 class="text-5xl font-bold">Plant a Tree, Grow a Future</h1>
-            <p class="py-6 max-w-xl mx-auto">
-              Join our mission to plant 1 million trees and make the Earth greener for future
-              generations.
-            </p>
-            <a href="#"
-              class="py-2.5 px-4 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300">Get
-              Involved</a>
-          </div>
+  <main>
+    <!-- hero section start -->
+    <section id="home" class="container mx-auto px-5 sm:px-8 lg:px-10 py-10">
+      <div class="hero-panel grid grid-cols-1 md:grid-cols-4 items-center gap-4 rounded-3xl p-4 md:p-8">
+        <div class="col-span-1 hidden md:block">
+          <img src="./assets/hero-leaf1.png" alt="Leaf decoration" class="floating-leaf">
         </div>
-      </div>
-    </div>
-    <div class="col-span-1">
-      <img src="./assets/hero-leaf2.png" alt="Hero Image">
-    </div>
-  </section>
-  <!-- hero section end -->
-
-  <!-- Choose Your Trees section start -->
-  <section class="container bg-green-50 py-5" id="services">
-    <div class="my-10">
-      <h1 class="text-3xl font-bold text-center">Choose Your Trees</h1>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-4 px-5">
-      <!-- Categories section start  -->
-      <div class="col-span-2 sticky top-10">
-        <h2 class="text-xl font-bold">Categories</h2>
-        <div class="mt-4">
-          <ul id="categories-container" class="menu bg-base-100 w-56 text-lg rounded-box">
-            <li><a id="categories-all-trees-button"
-                class="categoris-button bg-green-600 font-semibold text-white hover:bg-green-700">All Trees</a></li>
-            <!-- categories button will be here dynamically by API -->
-          </ul>
-        </div>
-      </div>
-      <!-- Categories section end -->
-
-      <!-- trees card section start -->
-      <div class="col-span-8">
-        <!-- card container  -->
-        <div id="plants-card-container" class="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <!-- all plants card will be display here dynamically -->
-        </div>
-
-        <!-- modal start  -->
-        <!-- Open the modal using ID.showModal() method -->
-        <dialog id="modal" class="modal">
-
-        </dialog>
-        <!-- modal end -->
-      </div>
-      <!-- trees card section end -->
-
-      <!-- cart section start -->
-      <div class="col-span-2 ">
-        <div class="bg-white p-5 rounded-lg">
-          <h1 class="text-xl font-bold py-2.5">Your Cart</h1>
-          <!-- card items container start -->
-          <div id="cart-items" class="space-y-2.5">
-
-            <div class="flex items-center justify-between bg-green-50 p-3 rounded-md">
-              <div>
-                <h2 class="font-semibold text-lg">Mango Tree</h2>
-                <p class="text-gray-500 font-medium">$500<span class="text-sm">&ensp;<i
-                      class="fa-solid fa-x"></i>&ensp;</span><span>1</span></p>
-              </div>
-              <div>
-                <button class="text-gray-500 cursor-pointer"><i class="fa-solid fa-x"></i></button>
+        <div class="col-span-1 md:col-span-2">
+          <div class="hero">
+            <div class="hero-content text-center">
+              <div class="max-w-2xl">
+                <h1 class="text-4xl md:text-5xl font-bold leading-tight">Plant a Tree, Grow a Future</h1>
+                <p class="py-6 max-w-xl mx-auto text-base md:text-lg text-gray-700">
+                  Join our mission to plant 1 million trees and make the Earth greener for future generations.
+                </p>
+                <button id="hero-involved-button"
+                  class="py-2.5 px-6 bg-yellow-400 text-gray-800 font-bold rounded-md cursor-pointer hover:bg-yellow-300 transition-all duration-300">Get
+                  Involved</button>
               </div>
             </div>
-
           </div>
-          <!-- card items container end -->
-
-          <!-- total price container start -->
-          <div class="mt-5 p-3 bg-yellow-100 rounded-md flex items-center justify-between text-lg font-bold">
-            <h3>Total:</h3>
-            <h2>$500</h2>
-          </div>
-          <!-- total price container end -->
+        </div>
+        <div class="col-span-1 hidden md:block">
+          <img src="./assets/hero-leaf2.png" alt="Leaf decoration" class="floating-leaf">
         </div>
       </div>
-      <!-- cart section end -->
-    </div>
-  </section>
-  <!-- Choose Your Trees section end -->
+    </section>
+    <!-- hero section end -->
+
+    <!-- about section start -->
+    <section id="about" class="container mx-auto px-5 sm:px-8 lg:px-10 py-8 md:py-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-3xl p-6 md:p-8 card-shadow">
+        <div>
+          <h2 class="text-3xl font-bold text-green-700">About Our Mission</h2>
+          <p class="mt-4 text-gray-700 leading-relaxed">
+            Green Earth helps communities choose the right trees, restore biodiversity, and build cleaner neighborhoods.
+            Every plant in this catalog supports a more resilient and beautiful environment.
+          </p>
+          <div class="mt-6 grid grid-cols-3 gap-3">
+            <div class="stat-chip"><span>100+</span><small>Species</small></div>
+            <div class="stat-chip"><span>50K+</span><small>Trees Planted</small></div>
+            <div class="stat-chip"><span>24/7</span><small>Support</small></div>
+          </div>
+        </div>
+        <div>
+          <img src="./assets/about.png" alt="People planting trees" class="w-full rounded-2xl object-cover">
+        </div>
+      </div>
+    </section>
+    <!-- about section end -->
+
+    <!-- gallery section start -->
+    <section id="gallery" class="container mx-auto px-5 sm:px-8 lg:px-10 py-8 md:py-12">
+      <h2 class="text-3xl font-bold text-center text-green-700 mb-8">Community Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="gallery-card bg-green-100">Eco Drive</div>
+        <div class="gallery-card bg-lime-100">School Garden</div>
+        <div class="gallery-card bg-emerald-100">Park Revival</div>
+        <div class="gallery-card bg-teal-100">River Bank</div>
+      </div>
+    </section>
+    <!-- gallery section end -->
+
+    <!-- Choose Your Trees section start -->
+    <section id="services" class="container mx-auto px-5 sm:px-8 lg:px-10 py-8 md:py-12">
+      <div class="mb-8 md:mb-10">
+        <h2 class="text-3xl font-bold text-center">Choose Your Trees</h2>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 xl:gap-6">
+        <!-- Categories section start -->
+        <aside class="lg:col-span-3 xl:col-span-2 lg:sticky lg:top-24 h-max">
+          <div class="category-panel bg-white rounded-2xl p-3 sm:p-4 card-shadow">
+            <h3 class="text-xl font-bold flex items-center gap-2"><i
+                class="fa-solid fa-seedling text-green-600"></i>Categories</h3>
+            <ul id="categories-container" class="menu bg-green-50 w-full text-base rounded-box gap-2">
+              <li><button id="categories-all-trees-button" data-category-id="all"
+                  class="category-button category-active">All Trees</button></li>
+              <!-- categories button will be here dynamically by API -->
+            </ul>
+          </div>
+        </aside>
+        <!-- Categories section end -->
+
+        <!-- trees card section start -->
+        <section class="lg:col-span-6 xl:col-span-8 relative min-h-80">
+          <div id="plants-loading"
+            class="hidden absolute inset-0 z-10 rounded-2xl bg-white/85 backdrop-blur-sm items-center justify-center">
+            <div class="text-center">
+              <span class="loading loading-spinner loading-lg text-green-600"></span>
+              <p class="mt-3 text-sm text-gray-600">Loading tree collection...</p>
+            </div>
+          </div>
+          <div id="plants-card-container" class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4"></div>
+
+          <!-- modal start -->
+          <dialog id="modal" class="modal"></dialog>
+          <!-- modal end -->
+        </section>
+        <!-- trees card section end -->
+
+        <!-- cart section start -->
+        <aside id="cart-panel" class="lg:col-span-3 xl:col-span-2">
+          <div class="bg-white p-3 sm:p-4 md:p-5 rounded-2xl card-shadow lg:sticky lg:top-24">
+            <div class="flex items-center justify-between pb-3 border-b border-green-100">
+              <h3 class="text-xl font-bold">Your Cart</h3>
+              <span id="cart-count-badge" class="badge bg-green-600 border-0 text-white">0 items</span>
+            </div>
+
+            <!-- cart items container start -->
+            <div id="cart-items" class="space-y-2.5 mt-4"></div>
+            <!-- cart items container end -->
+
+            <!-- total price container start -->
+            <div class="mt-5 p-3 bg-yellow-100 rounded-md space-y-2">
+              <div class="flex items-center justify-between text-lg font-bold">
+                <h4>Total:</h4>
+                <p id="cart-total">$0</p>
+              </div>
+              <button id="checkout-button"
+                class="btn-checkout w-full py-2.5 px-4 bg-linear-to-r from-green-600 to-green-700 text-white font-bold rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300 shadow-md hover:shadow-lg"><i
+                  class="fa-solid fa-credit-card mr-2"></i>Checkout</button>
+            </div>
+            <!-- total price container end -->
+          </div>
+        </aside>
+        <!-- cart section end -->
+      </div>
+    </section>
+    <!-- Choose Your Trees section end -->
+  </main>
 
   <!-- link script file -->
   <script src="./js/index.js"></script>
